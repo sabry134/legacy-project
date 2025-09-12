@@ -12,6 +12,7 @@ Contents
 
    architecture
    domain
+   features
    infrastructure
    services
    deployment
