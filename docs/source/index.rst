@@ -1,10 +1,13 @@
 GeneWeb-Python Documentation
 ============================
 
-Welcome to the official documentation for **GeneWeb-Python**.
+.. toctree::
+   :maxdepth: 2
+   :hidden:
 
-Contents
---------
+   introduction
+
+Welcome to GeneWeb-Python documentation. Start with :doc:`introduction` for an overview.
 
 .. toctree::
    :maxdepth: 2
