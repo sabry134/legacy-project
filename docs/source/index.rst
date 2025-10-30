@@ -19,8 +19,8 @@ Contents
    standards
 
 .. toctree::
-    :maxdepth: 2
-    :caption: Technical Guides
+   :maxdepth: 2
+   :caption: Technical Guides
 
    dependency_injection
    postgres_adapter
