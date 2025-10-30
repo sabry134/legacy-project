@@ -11,26 +11,39 @@ Welcome to GeneWeb-Python documentation. Start with :doc:`introduction` for an o
 
 .. toctree::
    :maxdepth: 2
-   :caption: Main Sections
+   :caption: Getting Started
+
+   introduction
+   quick_start
+   deployment
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Architecture
 
    architecture_overview
    component_interactions
+   refactoring_summary
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Technical Implementation
+
+   dependency_injection
+   postgres_adapter
    features
-   deployment
-   usage
-   testing
    standards
 
 .. toctree::
    :maxdepth: 2
-   :caption: Technical Guides
+   :caption: Development
 
-   refactoring_summary
-   dependency_injection
-   postgres_adapter
+   usage
+   testing
+   golden_master
 
 .. toctree::
    :maxdepth: 2
-   :caption: OLD
+   :hidden:
 
-   architecture
+   architecture_old
