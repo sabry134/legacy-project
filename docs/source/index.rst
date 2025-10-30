@@ -8,13 +8,19 @@ Contents
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Main Sections
 
    architecture
    component_interactions
-   dependency_injection
    features
    deployment
    usage
    testing
    standards
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Technical Guides
+
+   dependency_injection
+   postgres_adapter
