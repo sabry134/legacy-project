@@ -11,6 +11,7 @@ Contents
    :caption: Contents:
 
    architecture
+   architecture_diagram
    domain
    features
    infrastructure
