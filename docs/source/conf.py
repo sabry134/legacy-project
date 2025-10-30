@@ -48,3 +48,7 @@ html_show_sourcelink = False
 html_theme_options = {
     'display_version': False,
 }
+
+mermaid_params = [
+    '--height', '400',
+]

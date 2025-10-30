@@ -1,15 +1,57 @@
-Testing Policy
-==============
+Testing Strategy
+----------------
 
-- All tests are located in the ``tests/`` folder.
-- **Unit Tests:** Test individual services and repositories.
-- **Integration Tests:** Ensure services work with both in-memory and SQL repositories.
-- **Error Handling:** All repository methods raise clear exceptions for invalid operations.
+Unit Tests
+~~~~~~~~~~
 
-Our testing strategy follows the **Golden Master** approach: instead of verifying individual assertions, we capture the current output of a function and compare it against a previously validated "gold standard." This ensures that any unintended changes in behavior are immediately detected, while also making it easier to refactor code with confidence.
+- **Scope**: Individual components in isolation
+- **Dependencies**: Mocked external dependencies
+- **Focus**: Business logic validation
 
-Run tests:
+.. code-block:: python
 
-.. code-block:: bash
+    def test_create_person():
+        # Arrange
+        person_repository = Mock()
+        use_case = PersonUseCaseImpl(person_repository)
 
-    pytest tests/
+        # Act
+        person = use_case.create_person(Name("John"), Name("Doe"), Gender.MALE)
+
+        # Assert
+        assert person.first_name == Name("John")
+        person_repository.save.assert_called_once()
+
+Integration Tests
+~~~~~~~~~~~~~~~~~
+
+- **Scope**: Interaction between layers
+- **Dependencies**: Real implementations where appropriate
+- **Focus**: Port-adapter contracts
+
+.. code-block:: python
+
+    def test_person_use_case_integration():
+        # Arrange
+        container = DIContainer()
+        person_use_case = container.get(PersonUseCase)
+
+        # Act
+        person = person_use_case.create_person(Name("John"), Name("Doe"), Gender.MALE)
+        retrieved = person_use_case.get_person(person.id)
+
+        # Assert
+        assert retrieved == person
+
+End-to-End Tests
+~~~~~~~~~~~~~~~~
+
+- **Scope**: Complete user workflows
+- **Dependencies**: Full application stack
+- **Focus**: System behavior validation
+
+.. code-block:: python
+
+    def test_complete_genealogy_workflow():
+        # Test complete workflow from API to database
+        # Verify all interactions work together

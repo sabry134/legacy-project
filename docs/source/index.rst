@@ -11,13 +11,9 @@ Contents
    :caption: Contents:
 
    architecture
-   architecture_diagram
-   domain
+   dependency_injection
    features
-   infrastructure
-   services
    deployment
    usage
    testing
    standards
-
