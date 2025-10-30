@@ -11,6 +11,7 @@ Contents
    :caption: Contents:
 
    architecture
+   component_interactions
    dependency_injection
    features
    deployment
