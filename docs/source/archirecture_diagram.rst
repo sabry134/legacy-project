@@ -2,7 +2,7 @@ Architecture diagram
 ====================
 .. mermaid::
    :zoom:
-   :caption:
+   :caption: GeneWeb-Python Architecture Diagram:
    :align:
 
     classDiagram
