@@ -154,15 +154,6 @@ Benefits
 - **Scalability**: Architecture supports growth and complexity
 - **Independence**: Core business logic is independent of external frameworks
 
-Documentation References
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- `Architecture Documentation <ARCHITECTURE_DOCUMENTATION.md>`_ – Detailed architecture guide
-- `Interaction Flows <INTERACTION_FLOWS.md>`_ – Component interaction patterns
-- `Component Interactions <component_interactions.rst>`_ – Detailed component relationships
-- `Hexagonal Architecture Guide <hexagonal_architecture.md>`_ – Architecture principles
-- `Refactoring Summary <REFACTORING_SUMMARY.md>`_ – Migration details
-
 Common Issues
 ~~~~~~~~~~~~~
 
