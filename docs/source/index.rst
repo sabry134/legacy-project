@@ -10,6 +10,7 @@ Contents
    :maxdepth: 2
    :caption: Main Sections
 
+   architecture_overview
    component_interactions
    features
    deployment
