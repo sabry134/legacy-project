@@ -20,6 +20,8 @@ extensions = [
     'sphinxcontrib.mermaid'
 ]
 
+mermaid_params = ['--height', '600', '--width', '800']
+
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
