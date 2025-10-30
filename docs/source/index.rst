@@ -10,7 +10,6 @@ Contents
    :maxdepth: 2
    :caption: Main Sections
 
-   architecture
    component_interactions
    features
    deployment
@@ -24,3 +23,9 @@ Contents
 
    dependency_injection
    postgres_adapter
+
+.. toctree::
+   :maxdepth: 2
+   :caption: OLD
+
+   architecture
