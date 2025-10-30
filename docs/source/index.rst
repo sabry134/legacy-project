@@ -22,6 +22,7 @@ Contents
    :maxdepth: 2
    :caption: Technical Guides
 
+   refactoring_summary
    dependency_injection
    postgres_adapter
 
