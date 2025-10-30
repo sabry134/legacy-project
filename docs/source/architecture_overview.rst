@@ -13,18 +13,26 @@ Directory Structure
 .. code-block:: text
 
     src/
-    ├── domain/           # Core business logic
-    │   ├── entities/     # Domain entities (Person, Family, etc.)
-    │   ├── value_objects/# Immutable value objects (Name, Date, etc.)
-    │   └── repositories/ # Repository interfaces (ports)
-    ├── application/      # Use cases and application ports
-    │   ├── use_cases/    # Use case implementations
-    │   └── ports/        # Inbound/outbound port interfaces
-    ├── infrastructure/   # Adapters implementing ports
-    │   └── adapters/    # Database, API, CLI adapters
-    ├── shared/          # Shared utilities
-    │   └── di_container.py # Dependency injection container
-    └── main.py          # Application entry point
+    ├── domain/                    # Core business logic
+    │   ├── entities/             # Domain entities (Person, Family, etc.)
+    │   ├── value_objects/        # Immutable value objects
+    │   └── repositories/         # Repository interfaces (ports)
+    ├── application/              # Application layer
+    │   ├── use_cases/           # Use case implementations
+    │   └── ports/               # Application ports
+    │       ├── inbound/         # Inbound ports (use case interfaces)
+    │       └── outbound/        # Outbound ports (repository interfaces)
+    ├── infrastructure/          # Infrastructure layer
+    │   └── adapters/           # Adapters implementing ports
+    │       └── persistence/    # Database adapters
+    ├── shared/                 # Shared utilities
+    │   └── di_container.py     # Dependency injection container
+    └── main.py                 # Application entry point
+
+    tests/
+    ├── unit/                   # Unit tests (41 tests)
+    ├── integration/            # Integration tests
+    └── e2e/                   # End-to-end tests
 
 Key Components
 ~~~~~~~~~~~~~~
@@ -86,19 +94,6 @@ Quick Start
         gender=Gender.MALE
     )
 
-Testing
-~~~~~~~
-
-.. code-block:: bash
-
-    # Run all tests
-    python -m pytest tests/ -v
-
-    # Run specific test categories
-    python -m pytest tests/unit/ -v          # Unit tests
-    python -m pytest tests/integration/ -v    # Integration tests
-    python -m pytest tests/e2e/ -v           # End-to-end tests
-
 Common Patterns
 ~~~~~~~~~~~~~~~
 
@@ -134,25 +129,6 @@ Dependency Rules
 2. **Application Layer**: Depends only on Domain Layer
 3. **Infrastructure Layer**: Depends on Application Layer
 4. **Dependency Inversion**: All dependencies point inward
-
-Current Status
-~~~~~~~~~~~~~~
-
-- ✅ **Domain Layer**: Complete with entities, value objects, and repository interfaces
-- ✅ **Application Layer**: Use cases and ports implemented
-- ✅ **Infrastructure Layer**: In\-memory adapters implemented
-- ✅ **Dependency Injection**: Custom DI container
-- ✅ **Testing**: 41 tests with 100% pass rate
-- ✅ **Documentation**: Comprehensive architecture documentation
-
-Benefits
-~~~~~~~~
-
-- **Maintainability**: Clear separation of concerns
-- **Testability**: Each component can be tested independently
-- **Flexibility**: Easy to add new features or change implementations
-- **Scalability**: Architecture supports growth and complexity
-- **Independence**: Core business logic is independent of external frameworks
 
 Common Issues
 ~~~~~~~~~~~~~
