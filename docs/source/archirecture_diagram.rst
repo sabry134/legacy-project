@@ -2,8 +2,8 @@ Architecture diagram
 ====================
 .. mermaid::
    :zoom:
-   :caption: GeneWeb-Python Architecture Diagram:
-   :align:
+   :caption: GeneWeb-Python Architecture Diagram
+   :align: center
 
     classDiagram
         %% Abstract base classes and interfaces
