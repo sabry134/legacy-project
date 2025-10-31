@@ -1,4 +1,4 @@
-Postgres Adapters - Technical Guide
+Postgres Adapters
 ====================================
 
 This document explains how the SQLAlchemy\-based Postgres adapters are structured, configured, and used across the project.

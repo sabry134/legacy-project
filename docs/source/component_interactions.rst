@@ -1,5 +1,5 @@
-GeneWeb Python - Component Interactions
-========================================
+Component Interactions
+======================
 
 This document provides detailed information about how components interact within the hexagonal architecture.
 

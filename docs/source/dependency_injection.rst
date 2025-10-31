@@ -1,91 +1,11 @@
-Migration Guide: Custom DI to dependency-injector
-==================================================
-
-Dependency Management
----------------------
-
-Dependency Injection Container
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The project uses a custom dependency injection container that manages:
-
-- **Service Lifecycles**: Singleton vs Transient
-- **Dependency Resolution**: Automatic injection
-- **Service Registration**: Clean API for registration
-
-Service Registration Example
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: python
-
-    # Register repositories as singletons
-    container.register_singleton(PersonRepositoryPort, InMemoryPersonRepository)
-    container.register_singleton(FamilyRepositoryPort, InMemoryFamilyRepository)
-
-    # Register use cases
-    container.register(PersonUseCase, PersonUseCaseImpl)
-    container.register(FamilyUseCase, FamilyUseCaseImpl)
-
-Service Resolution Example
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: python
-
-    # Get use case with automatic dependency injection
-    person_use_case = container.get(PersonUseCase)
-    # Dependencies are automatically injected
-
-Dependency Rules
-^^^^^^^^^^^^^^^^
-
-1. **Domain Layer**: No dependencies on external layers
-2. **Application Layer**: Depends only on Domain Layer
-3. **Infrastructure Layer**: Depends on Application Layer
-4. **Dependency Inversion**: All dependencies point inward
-
-This guide explains how to migrate from the custom DI container to the new `dependency-injector` based system.
-
-What Changed
-------------
-
-New Dependencies
-~~~~~~~~~~~~~~~~
-
-- Added `dependency-injector>=4.41.0` to `requirements.txt`
-- Removed custom `DIContainer` class (kept for backward compatibility)
-
-New Files
-~~~~~~~~~
-
-- `src/shared/containers.py` - DI container definitions
-- `src/shared/di_config.py` - DI configuration and utilities
-- `tests/test_helpers.py` - Test utilities for DI
-- `examples/di_usage_example.py` - Usage examples
-
-Updated Files
-~~~~~~~~~~~~~
-
-- `src/application/use_cases/person_use_case_impl.py` - Added DI decorators
-- `src/application/use_cases/family_use_case_impl.py` - Added DI decorators
-- `src/main.py` - Updated to use new DI system
+Custom DI to dependency-injector
+================================
 
 Migration Steps
 ---------------
 
 Step 1: Update Service Registration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Old way:**
-
-.. code-block:: python
-
-    from src.shared.di_container import DIContainer
-
-    container = DIContainer()
-    container.register_singleton(PersonRepositoryPort, InMemoryPersonRepository)
-    container.register(PersonUseCase, PersonUseCaseImpl)
-
-**New way:**
 
 .. code-block:: python
 
@@ -97,14 +17,6 @@ Step 1: Update Service Registration
 Step 2: Update Service Resolution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Old way:**
-
-.. code-block:: python
-
-    person_use_case = container.get(PersonUseCase)
-
-**New way:**
-
 .. code-block:: python
 
     from src.shared.di_config import get_di_config
@@ -115,16 +27,6 @@ Step 2: Update Service Resolution
 
 Step 3: Update Use Case Implementations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**Old way:**
-
-.. code-block:: python
-
-    class PersonUseCaseImpl(PersonUseCase):
-        def __init__(self, person_repository: PersonRepositoryPort):
-            self._person_repository = person_repository
-
-**New way:**
 
 .. code-block:: python
 
@@ -142,17 +44,6 @@ Step 3: Update Use Case Implementations
 Step 4: Update Tests
 ~~~~~~~~~~~~~~~~~~~~
 
-**Old way:**
-
-.. code-block:: python
-
-    def test_person_use_case():
-        person_repo = Mock()
-        use_case = PersonUseCaseImpl(person_repo)
-        # test...
-
-**New way:**
-
 .. code-block:: python
 
     from tests.test_helpers import create_test_di_helper
@@ -165,8 +56,8 @@ Step 4: Update Tests
         finally:
             di_helper.cleanup()
 
-Benefits of the New System
---------------------------
+Benefits
+------
 
 Automatic Dependency Resolution
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

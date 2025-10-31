@@ -1,4 +1,4 @@
-GEDCOM v5.5.1 Import/Export
+GEDCOM Import/Export
 ============================
 
 Overview

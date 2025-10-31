@@ -43,5 +43,11 @@ Welcome to GeneWeb-Python documentation. Start with :doc:`introduction` for an o
 
    usage
    standards
-   testing
    golden_master
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Testing
+
+   test_plan
+   e2e_tests
