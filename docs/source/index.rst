@@ -26,8 +26,6 @@ Welcome to GeneWeb-Python documentation. Start with :doc:`introduction` for an o
    :caption: Architecture
 
    architecture_overview
-   component_interactions
-   refactoring_summary
 
 .. toctree::
    :maxdepth: 2
