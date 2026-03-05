@@ -20,6 +20,7 @@ Welcome to GeneWeb-Python documentation. Start with :doc:`introduction` for an o
    :maxdepth: 2
 
    features
+   accessibility
 
 .. toctree::
    :maxdepth: 2
